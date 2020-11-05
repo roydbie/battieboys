@@ -1,8 +1,8 @@
 import React from 'react';
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
-import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import SettingsIcon from '@material-ui/icons/Settings';
 import TimerIcon from '@material-ui/icons/Timer';
+import GroupIcon from '@material-ui/icons/Group';
 import KaartjeOefeningBicep from './MeCards.js';
 import KaartjeOefeningTricep from './MeCardsTricep.js';
 import KaartjeOefeningChest from './MeCardsChest.js';
@@ -21,6 +21,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 import Notifications from './Notifications.js';
+
+import People from './People.js';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -112,8 +114,7 @@ function Navigation() {
               </Paper><br></br>
             </Route>
             <Route exact path="/progress">
-              Progress
-              blablalba
+              <People />
             </Route>
             <Route exact path="/settings">
               Settings
@@ -123,7 +124,7 @@ function Navigation() {
           <footer>
             <NavLink to="/home" activeClassName="activeLink" className="bottomnavitem"><TimerIcon /></NavLink>
             <NavLink to="/me" activeClassName="activeLink" className="bottomnavitem"><FormatListNumberedIcon /></NavLink>
-            <NavLink to="/progress" activeClassName="activeLink" className="bottomnavitem"><TrendingUpIcon /></NavLink>
+            <NavLink to="/progress" activeClassName="activeLink" className="bottomnavitem"><GroupIcon /></NavLink>
             <NavLink to="/settings" activeClassName="activeLink" className="bottomnavitem"><SettingsIcon /></NavLink>
           </footer>
         </Router>
