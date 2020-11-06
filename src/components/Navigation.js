@@ -3,9 +3,6 @@ import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
 import SettingsIcon from '@material-ui/icons/Settings';
 import TimerIcon from '@material-ui/icons/Timer';
 import GroupIcon from '@material-ui/icons/Group';
-import KaartjeOefeningBicep from './MeCards.js';
-import KaartjeOefeningTricep from './MeCardsTricep.js';
-import ChestEx from './ChestEx.js';
 
 import Paper from '@material-ui/core/Paper';
 
@@ -21,8 +18,6 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 import Notifications from './Notifications.js';
-
-import People from './People.js';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -99,22 +94,22 @@ function Navigation() {
                     <Tab label="back" className="tab" {...a11yProps(3)}/>
                   </Tabs>
                   <TabPanel value={value} index={0}>
-                    <ChestEx />
+                    Chest jajaja
                   </TabPanel>
                   <TabPanel value={value} index={1}>
-                    <KaartjeOefeningBicep />
+                    Bicep jajajaja
                   </TabPanel>
                   <TabPanel value={value} index={2}>
-                    <KaartjeOefeningTricep />
+                    Tricep jajaja
                   </TabPanel>
                   <TabPanel value={value} index={3}>
-                    Item Vier
+                    Rug jajajaja
                   </TabPanel>
                 </MuiThemeProvider>
               </Paper><br></br>
             </Route>
             <Route exact path="/progress">
-              <People />
+              Andere mjenson
             </Route>
             <Route exact path="/settings">
               Settings
