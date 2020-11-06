@@ -100,3 +100,26 @@ footer {
 .paper {
   box-shadow: none!important;
 }
+
+.topnav {
+  background-color: #23985F!important;
+  box-shadow: none!important;
+}
+
+.navlink {
+  color: white!important;
+  text-decoration: none;
+  font-weight:700;
+}
+
+.appbar {
+  box-shadow: none!important;
+}
+
+.navbaricons {
+  padding-top: 8px;
+}
+
+.exercisecard {
+  box-shadow: 0px 1px 10px #dedede!important;
+}

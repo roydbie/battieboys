@@ -17,7 +17,9 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-import Notifications from './Notifications.js';
+import Notifications from './dashboard/Notifications.js';
+import Exerciselist from './exercises/ExerciseList';
+import ExerciseDetails from './exercises/ExerciseDetails.js';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -74,10 +76,10 @@ function Navigation() {
     <div>
       <Router>
           <Switch>
-            <Route exact path="/home">
+            <Route exact path="/home" component={Notifications}>
               <Notifications />
             </Route>
-            <Route exact path="/me">
+            <Route exact path="/exercises">
               <Paper square className="paper">
                 <MuiThemeProvider theme={theme}>
                   <Tabs
@@ -94,7 +96,7 @@ function Navigation() {
                     <Tab label="back" className="tab" {...a11yProps(3)}/>
                   </Tabs>
                   <TabPanel value={value} index={0}>
-                    Chest jajaja
+                    <Exerciselist />
                   </TabPanel>
                   <TabPanel value={value} index={1}>
                     Bicep jajajaja
@@ -114,11 +116,14 @@ function Navigation() {
             <Route exact path="/settings">
               Settings
             </Route>
+            <Route path="/project/:id" component={ExerciseDetails}>
+              
+            </Route>
           </Switch>
           
           <footer>
             <NavLink to="/home" activeClassName="activeLink" className="bottomnavitem"><TimerIcon /></NavLink>
-            <NavLink to="/me" activeClassName="activeLink" className="bottomnavitem"><FormatListNumberedIcon /></NavLink>
+            <NavLink to="/exercises" activeClassName="activeLink" className="bottomnavitem"><FormatListNumberedIcon /></NavLink>
             <NavLink to="/progress" activeClassName="activeLink" className="bottomnavitem"><GroupIcon /></NavLink>
             <NavLink to="/settings" activeClassName="activeLink" className="bottomnavitem"><SettingsIcon /></NavLink>
           </footer>

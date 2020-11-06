@@ -1,48 +1,21 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter} from 'react-router-dom';
 
-import Header from './components/Header.js';
+import Navbar from './components/layout/Navbar.js';
 
-import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-
-import Navigation from './components/Navigation.js'
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
-};
-
+import Navigation from './components/Navigation.js';
 
 function App() {
   
 
   return (
     <div className="App">
-      <Header />
+    <BrowserRouter>
+      <Navbar />
       <Navigation />
+
+    </BrowserRouter>
 
     </div>
   );
