@@ -5,7 +5,7 @@ import TimerIcon from '@material-ui/icons/Timer';
 import GroupIcon from '@material-ui/icons/Group';
 import KaartjeOefeningBicep from './MeCards.js';
 import KaartjeOefeningTricep from './MeCardsTricep.js';
-import KaartjeOefeningChest from './MeCardsChest.js';
+import ChestEx from './ChestEx.js';
 
 import Paper from '@material-ui/core/Paper';
 
@@ -99,7 +99,7 @@ function Navigation() {
                     <Tab label="back" className="tab" {...a11yProps(3)}/>
                   </Tabs>
                   <TabPanel value={value} index={0}>
-                    <KaartjeOefeningChest />
+                    <ChestEx />
                   </TabPanel>
                   <TabPanel value={value} index={1}>
                     <KaartjeOefeningBicep />

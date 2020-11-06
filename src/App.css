@@ -89,6 +89,14 @@ footer {
   width: 100%;
 }
 
+.listpeople {
+  width: 90%;
+}
+
+.listitem {
+  margin-left:10%;
+}
+
 .paper {
   box-shadow: none!important;
 }
