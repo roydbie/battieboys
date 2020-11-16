@@ -53,11 +53,11 @@ class Dashboard extends Component {
               Andere Mjenson
               <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
               
-              {/*<Inputfield />
+              <Inputfield />
               <Dropdown />
               <PlusMinusField />
               <Selection /><br></br>
-              <GradientList />*/}
+              <GradientList />
               <ProductList />
             </Route>
             <Route exact path="/settings">

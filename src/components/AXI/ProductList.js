@@ -8,7 +8,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
 
 import Whiskas from '../../images/whiskas.jpg';
 import Zeep from '../../images/zeep.jpg';
@@ -19,6 +18,9 @@ import { Typography } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 
 import TableCell from '@material-ui/core/TableCell';
+
+import { ActionAnimations, SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
+import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,17 +50,6 @@ const useStyles = makeStyles((theme) => ({
       bottom: '0'
   },
   cell2: {
-    width:'120px',
-    fontSize: 23,
-    borderBottom: 'none'
-  },
-  cell3: {
-    width: '300px',
-    fontSize: 23,
-    borderBottom: 'none',
-    bottom: '0'
-},
-  cell4: {
     width:'120px',
     fontSize: 23,
     borderBottom: 'none'
@@ -132,20 +123,50 @@ export default function InteractiveList() {
                   </ListItemAvatar>
                   <ListItemText className={classes.listItemText}>
                   <Typography variant="h5">
-                            <TableCell className={classes.cell3}>Beaphar Druivensuiker</TableCell>
-                            <TableCell className={classes.cell4}>6 st</TableCell>
+                            <TableCell className={classes.cell1}>Beaphar Druivensuiker</TableCell>
+                            <TableCell className={classes.cell2}>6 st</TableCell>
                     </Typography>
                   </ListItemText>
                   <ListItemSecondaryAction>
                     <IconButton edge="end" aria-label="edit">
                       <EditIcon fontSize="large"/>
                     </IconButton>
-                    <IconButton edge="end" aria-label="delete">
-                      <DeleteIcon fontSize="large"/>
-                    </IconButton>
                   </ListItemSecondaryAction>
                 </ListItem>
             </List>
+
+            <SwipeableList>
+              {({ className, ...rest }) => (
+                <div className={className}>
+                  <SwipeableListItem
+                    swipeRight={{
+                      content: <div>Delete</div>,
+                      action: () => console.info('swipe action triggered'),
+                      actionAnimation: ActionAnimations.REMOVE
+
+                    }}
+                    {...rest}
+                  >
+                    <ListItem className={classes.listitem}>
+                      <ListItemAvatar>
+                        <img src={Vogel} alt="not found" width="60" height="60"/>
+                      </ListItemAvatar>
+                      <ListItemText className={classes.listItemText}>
+                      <Typography variant="h5">
+                                <TableCell className={classes.cell1}>Beaphar Druivensuiker</TableCell>
+                                <TableCell className={classes.cell2}>6 st</TableCell>
+                        </Typography>
+                      </ListItemText>
+                      <ListItemSecondaryAction>
+                        <IconButton edge="end" aria-label="edit">
+                          <EditIcon fontSize="large"/>
+                        </IconButton>
+                      </ListItemSecondaryAction>
+                    </ListItem>
+                  </SwipeableListItem>
+                </div>
+              )}
+            </SwipeableList>
           </div>
         </Grid>
     </div>
