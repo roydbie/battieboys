@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
 
+import { connect } from 'react-redux';
+
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -19,9 +21,12 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-const Navbar = () => {
+const Navbar = (props) => {
 
     const classes = useStyles();
+
+    const { auth } = props;
+    const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
 
     return(
         <AppBar position="static" className="appbar">
@@ -30,10 +35,16 @@ const Navbar = () => {
                 Battie Boys
                 </Typography>
 
-                <SignedOutLinks />
+                { links }
             </Toolbar>
         </AppBar>
     )
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+export default connect(mapStateToProps)(Navbar);

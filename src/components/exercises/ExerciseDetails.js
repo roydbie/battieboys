@@ -4,6 +4,14 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+
+import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+
 const useStyles = makeStyles({
   bullet: {
     display: 'inline-block',
@@ -20,24 +28,53 @@ const useStyles = makeStyles({
 
 const ExerciseDetails = (props) => {
     const classes = useStyles();
-    const id = props.match.params.id;
-    return(
+    const { exercise, auth } = props;
+        if(!auth.uid) {
+            return <Redirect to='/signin' />
+        }
+    if(exercise){
+      return(
+        <div>
+        
         <Card className="exercisecard">
-                <br></br><br></br>
-                <CardContent>
-                    <Typography variant="h6" component="h2">
-                        Exercise Title - {id}
-                    </Typography>
-                    <br></br>
-                    <Typography className={classes.title} color="textSecondary" gutterBottom>
-                    Faketekst of Lorem ipsum ook wel lipsum genoemd, is de naam van een tekst die meestal door drukkers en grafisch ontwerpers (bijv. webdesigners en dtp-ers) gebruikt wordt om te kijken hoe een tekst of lettertype eruit komt te zien.
-                    </Typography>
-                    <Typography className={classes.title} color="textSecondary">
-                    14:00 45-20-1020
-                    </Typography>
-                </CardContent>
-            </Card>
-    )
+        <br></br><br></br><br></br>
+        <Link to="/exercises" className="backbutton"><KeyboardBackspaceIcon /></Link>
+          <CardContent>
+              <Typography variant="h6" component="h2">
+                  {exercise.title}
+              </Typography>
+              <br></br>
+              <Typography className={classes.title} color="textSecondary" gutterBottom>
+                  {exercise.content}
+              </Typography>
+              <Typography className={classes.title} color="textSecondary">
+                {exercise.createdAt.toDate().toDateString()}
+              </Typography>
+          </CardContent>
+      </Card>
+      </div>
+      )
+    } else {
+      return(
+          <p>Loading project...</p>
+        )
+    }
+    
 }
 
-export default ExerciseDetails;
+const mapStateToProps = (state, ownProps) => {
+  const id = ownProps.match.params.id;
+  const exercises = state.firestore.data.exercises;
+  const exercise = exercises ? exercises[id] : null;
+  return {
+    exercise: exercise,
+    auth: state.firebase.auth
+  }
+}
+
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    {collection: 'exercises'}
+  ])
+)(ExerciseDetails);

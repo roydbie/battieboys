@@ -123,3 +123,43 @@ footer {
 .exercisecard {
   box-shadow: 0px 1px 10px #dedede!important;
 }
+
+.AXIDropdown {
+  font-size: 40px;
+}
+
+.loginform {
+  margin-top: 10ch;
+  width: 100%;
+  color: red;
+}
+
+.textfieldlogin {
+  width: 70%;
+}
+
+.buttonlogin {
+  width: 50%;
+  font-weight: bold;
+}
+
+.selectionrow {
+  width:60%;
+  margin-left: 28%;
+}
+
+.gradientlistitem {
+  background-color: #dedede;
+  height:8ch;
+  border-radius: 0.6ch;
+  color: #4A61ED;
+  font-weight: bold;
+}
+
+.exerciselinks {
+  text-decoration: none;
+}
+
+.backbutton {
+  color: #23985F!important;
+}
