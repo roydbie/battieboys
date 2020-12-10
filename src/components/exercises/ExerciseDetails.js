@@ -11,6 +11,7 @@ import { compose } from 'redux';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
+import moment from 'moment';
 
 const useStyles = makeStyles({
   bullet: {
@@ -48,7 +49,7 @@ const ExerciseDetails = (props) => {
                   {exercise.content}
               </Typography>
               <Typography className={classes.title} color="textSecondary">
-                {exercise.createdAt.toDate().toDateString()}
+                {moment(exercise.createdAt.toDate()).calendar()}
               </Typography>
           </CardContent>
       </Card>

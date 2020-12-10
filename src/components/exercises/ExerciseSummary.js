@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import moment from 'moment';
 
 
 const useStyles = makeStyles({
@@ -33,7 +34,8 @@ const ExerciseSummary = ({exercise}) => {
               {exercise.content}
               </Typography>
               <Typography className={classes.title} color="textSecondary">
-              {exercise.createdAt.toDate().toDateString()}
+              {moment(exercise.createdAt.toDate()).calendar()} &nbsp;&nbsp;&nbsp;by &nbsp;&nbsp;&nbsp;
+              {exercise.authorFirstName} {exercise.authorLastName}
               </Typography>
           </CardContent>
         </Card>

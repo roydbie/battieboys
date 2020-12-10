@@ -31,6 +31,7 @@ export class CreateExercise extends Component {
         e.preventDefault();
         // console.log(this.state);
         this.props.createExercise(this.state);
+        this.props.history.push('/exercises');
     }
     
     render() {

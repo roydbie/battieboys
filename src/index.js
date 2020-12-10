@@ -18,7 +18,7 @@ import { isLoaded  } from 'react-redux-firebase';
 import 'firebase/firestore';
 
 const rrfConfig = { 
-    userProfile: 'projects',
+    userProfile: 'users',
     useFirestoreForProfile: true
 }
 
@@ -27,11 +27,10 @@ const store = createStore(rootReducer,
         applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
         reduxFirestore(firebase)
     )
-    );
+);
 
 const rffProps = {
     firebase,
-    useFirestoreForProfile: true,
     config: rrfConfig,
     dispatch: store.dispatch,
     createFirestoreInstance,

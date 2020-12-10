@@ -11,13 +11,6 @@ import Notifications from './dashboard/Notifications.js';
 import { connect } from 'react-redux';
 import TabsZelf from './TabsZelf';
 
-import Dropdown from './AXI/Dropdown';
-import PlusMinusField from './AXI/PlusMinusField';
-import Inputfield from './AXI/InputField';
-import Selection from './AXI/Selection';
-import GradientList from './AXI/GradientList';
-import ProductList from './AXI/ProductList';
-
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import ExerciseDetails from './exercises/ExerciseDetails.js';
@@ -52,13 +45,6 @@ class Dashboard extends Component {
             
               Andere Mjenson
               <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-              
-              <Inputfield />
-              <Dropdown />
-              <PlusMinusField />
-              <Selection /><br></br>
-              <GradientList />
-              <ProductList />
             </Route>
             <Route exact path="/settings">
               Settings

@@ -19,14 +19,14 @@ function App() {
 
   return (
     <div className="App">
-    <BrowserRouter>
+    <BrowserRouter basename="/reactapp">
       <Router>
       <Navbar />
           <Switch>
             <Route exact path="/reactapp">
               <Redirect to='/signin' />
             </Route>
-            <Route exact path="/home" component={Dashboard}>
+            <Route path="/home" component={Dashboard}>
               <Dashboard />
             </Route>
             <Route path="/signin" component={withRouter(SignIn)}>
@@ -38,16 +38,16 @@ function App() {
             <Route path="/create" component={CreateExercise}>
               
             </Route>
-            <Route exact path="/exercise/:id" component={ExerciseDetails}>
+            <Route path="/exercise/:id" component={ExerciseDetails}>
               
             </Route>
-            <Route exact path="/exercises" component={Dashboard}>
+            <Route path="/exercises" component={Dashboard}>
               <Dashboard />
             </Route>
-            <Route exact path="/progress" component={Dashboard}> 
+            <Route path="/progress" component={Dashboard}> 
               <Dashboard />
             </Route>
-            <Route exact path="/settings" component={Dashboard}>
+            <Route path="/settings" component={Dashboard}>
               <Dashboard />
             </Route>
           </Switch>
