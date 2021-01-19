@@ -1,4 +1,4 @@
-# Battie Boys - version 1
+# Battie Boys - version 1 (Development Friday)
 
 Battie Boys is a Fitness app that stimulates to train/sport together. Don't you think the current fitness apps in the store are too focussed on personal results?
 Battie Boys tracks your personal gains but at the same time it tracks the gains from your best friends. 
